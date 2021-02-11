@@ -14,6 +14,14 @@ class NoteCell: UITableViewCell {
     @IBOutlet var lockImage: UIImageView!
     
 
-    
+    func configureCell(note: Note){
+        if note.lockedStatus == .locked{
+            lockImage.isHidden = false
+            noteLabel.text = "you have no power here. unlock it."
+        } else {
+            lockImage.isHidden = true
+            noteLabel.text = note.message
+        }
+    }
     
 }
