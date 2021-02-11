@@ -26,6 +26,30 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HFY-UV-UkH" id="jdt-Ne-iQf">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o4g-dC-BP3">
+                                                    <rect key="frame" x="310" y="7" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="BV5-Hv-sZS"/>
+                                                        <constraint firstAttribute="width" constant="60" id="qU9-s3-Rfj"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqD-Ip-gjl">
+                                                    <rect key="frame" x="20" y="19" width="273" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OqD-Ip-gjl" firstAttribute="leading" secondItem="jdt-Ne-iQf" secondAttribute="leadingMargin" id="274-lq-2QR"/>
+                                                <constraint firstItem="o4g-dC-BP3" firstAttribute="top" secondItem="jdt-Ne-iQf" secondAttribute="top" constant="7" id="2kU-tM-LGE"/>
+                                                <constraint firstAttribute="trailing" secondItem="o4g-dC-BP3" secondAttribute="trailing" constant="20" symbolic="YES" id="DCZ-IU-n16"/>
+                                                <constraint firstItem="OqD-Ip-gjl" firstAttribute="top" secondItem="jdt-Ne-iQf" secondAttribute="topMargin" constant="8" id="IJZ-Jh-c1L"/>
+                                                <constraint firstItem="o4g-dC-BP3" firstAttribute="leading" secondItem="OqD-Ip-gjl" secondAttribute="trailing" constant="17" id="bim-KR-rqg"/>
+                                                <constraint firstAttribute="bottom" secondItem="o4g-dC-BP3" secondAttribute="bottom" constant="8" id="sDe-tt-e3B"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OqD-Ip-gjl" secondAttribute="bottom" constant="8" id="u4l-wp-NHW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -40,7 +64,16 @@
                             <constraint firstItem="0i9-c7-Sno" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dSK-LO-5oC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="private notes" id="4aY-Cp-31h"/>
+                    <navigationItem key="navigationItem" title="private notes" id="4aY-Cp-31h">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" style="plain" id="4iZ-ca-dw8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3SS-2l-bdJ">
+                                <rect key="frame" x="288" y="7" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0i9-c7-Sno" id="rek-iT-ddV"/>
                     </connections>
@@ -69,6 +102,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

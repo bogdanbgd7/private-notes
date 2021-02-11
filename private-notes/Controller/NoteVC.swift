@@ -9,8 +9,6 @@ import UIKit
 
 class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
 
@@ -23,12 +21,16 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - Table View Delegate Methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        return UITableViewCell()
     }
 
 

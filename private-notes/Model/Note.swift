@@ -9,7 +9,7 @@ import Foundation
 
 class Note {
     
-    //This property can be read, but cannot be set from the outside
+    //public private(set) --->    This property can be read, but cannot be set from the outside
     public private(set) var message : String
     public var lockedStatus : LockStatus
     
