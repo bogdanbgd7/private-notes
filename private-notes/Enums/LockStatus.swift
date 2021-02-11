@@ -8,6 +8,6 @@
 import Foundation
 
 enum LockStatus {
-    case isLocked
-    case notLocked
+    case locked
+    case unlocked
 }
