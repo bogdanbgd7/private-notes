@@ -8,22 +8,29 @@
 import UIKit
 
 class NoteDetailsVC: UIViewController {
-
+    
+    //MARK: - Outlets
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var lockBtn: UIButton!
+    @IBOutlet weak var lockImg: UIImageView!
+    
+    //MARK: - Props
+    var note: Note!
+    var index: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //load message for each note
+        textView.text = note.message
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func lockBtnPressed(_ sender: Any) {
+        notesArrary[index].lockedStatus = .locked
+        navigationController?.popViewController(animated: true)
     }
-    */
+    
+    
 
 }

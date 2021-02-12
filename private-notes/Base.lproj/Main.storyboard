@@ -81,16 +81,16 @@
             </objects>
             <point key="canvasLocation" x="1000" y="76.777251184834114"/>
         </scene>
-        <!--View Controller-->
+        <!--Note DetailsVC-->
         <scene sceneID="5Zp-FH-xFN">
             <objects>
-                <viewController id="Eke-Wm-RhX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteDetailsVC" id="Eke-Wm-RhX" customClass="NoteDetailsVC" customModule="private_notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ya8-Th-AdA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FNX-TM-tjU">
-                                <rect key="frame" x="0.0" y="99" width="390" height="591"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="646"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -107,24 +107,38 @@
                                 <state key="normal" title="lock">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="lockBtnPressed:" destination="Eke-Wm-RhX" eventType="touchUpInside" id="tfU-yp-cg4"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-lock-52" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-uw-ulU">
-                                <rect key="frame" x="317" y="750" width="28" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-lock-52" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-uw-ulU">
+                                <rect key="frame" x="138" y="750" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="N3o-sC-Ai7"/>
+                                    <constraint firstAttribute="width" constant="30" id="nsl-Ev-51a"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wkD-F7-U7M"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="wkD-F7-U7M" firstAttribute="trailing" secondItem="wZb-uw-ulU" secondAttribute="trailing" constant="222" id="Eip-iV-Fjm"/>
                             <constraint firstItem="FNX-TM-tjU" firstAttribute="leading" secondItem="wkD-F7-U7M" secondAttribute="leading" id="Gmn-uV-2o9"/>
                             <constraint firstItem="wkD-F7-U7M" firstAttribute="bottom" secondItem="Jsq-tq-HFb" secondAttribute="bottom" constant="20" id="Ysa-bd-4J9"/>
                             <constraint firstItem="FNX-TM-tjU" firstAttribute="trailing" secondItem="wkD-F7-U7M" secondAttribute="trailing" id="bda-fa-IhM"/>
                             <constraint firstItem="Jsq-tq-HFb" firstAttribute="leading" secondItem="wkD-F7-U7M" secondAttribute="leading" constant="25" id="c1P-Iz-eve"/>
-                            <constraint firstItem="FNX-TM-tjU" firstAttribute="top" secondItem="wkD-F7-U7M" secondAttribute="top" constant="55" id="fQx-Lf-6hc"/>
+                            <constraint firstItem="wZb-uw-ulU" firstAttribute="leading" secondItem="wkD-F7-U7M" secondAttribute="leading" constant="138" id="cjj-fY-L58"/>
+                            <constraint firstItem="FNX-TM-tjU" firstAttribute="top" secondItem="wkD-F7-U7M" secondAttribute="top" id="fQx-Lf-6hc"/>
+                            <constraint firstItem="wZb-uw-ulU" firstAttribute="top" secondItem="FNX-TM-tjU" secondAttribute="bottom" constant="60" id="mZb-fi-Xgw"/>
                             <constraint firstItem="Jsq-tq-HFb" firstAttribute="top" secondItem="FNX-TM-tjU" secondAttribute="bottom" constant="50" id="rhZ-Wx-XEA"/>
                             <constraint firstItem="wkD-F7-U7M" firstAttribute="trailing" secondItem="Jsq-tq-HFb" secondAttribute="trailing" constant="25" id="v8H-s1-9v4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lockBtn" destination="Jsq-tq-HFb" id="AyF-XJ-e4g"/>
+                        <outlet property="lockImg" destination="wZb-uw-ulU" id="LaT-VE-tcg"/>
+                        <outlet property="textView" destination="FNX-TM-tjU" id="T3B-Za-MfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOT-cx-TTV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,6 +153,7 @@
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
