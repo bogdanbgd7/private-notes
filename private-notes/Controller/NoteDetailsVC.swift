@@ -15,7 +15,7 @@ class NoteDetailsVC: UIViewController {
     @IBOutlet weak var lockImg: UIImageView!
     
     //MARK: - Props
-    var note: Note!
+    var note: Note! //lockStatus enabled
     var index: Int!
     
     override func viewDidLoad() {
@@ -31,6 +31,22 @@ class NoteDetailsVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - lockStatus helper functions
     
+    func isNoteLocked(_ lockStatus: LockStatus) -> Bool {
+        if lockStatus == .locked {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func lockStatusSwitcher(_ lockStatus: LockStatus) -> LockStatus {
+        if lockStatus == .locked {
+            return .unlocked
+        } else {
+            return .locked
+        }
+    }
 
 }
