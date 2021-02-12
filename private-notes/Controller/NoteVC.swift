@@ -15,6 +15,7 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //tableView 
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -29,6 +30,7 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return notesArrary.count
     }
     
+    //cellForRowAt behaves like for-each function. 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as? NoteCell else {return UITableViewCell()}
         let note = notesArrary[indexPath.row]

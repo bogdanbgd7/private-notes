@@ -36,7 +36,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqD-Ip-gjl">
                                                     <rect key="frame" x="20" y="19" width="293" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -69,12 +69,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="private notes" id="4aY-Cp-31h">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" style="plain" id="4iZ-ca-dw8">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3SS-2l-bdJ">
-                                <rect key="frame" x="288" y="7" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="VRu-Ku-9ou">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
@@ -86,6 +81,55 @@
             </objects>
             <point key="canvasLocation" x="1000" y="76.777251184834114"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5Zp-FH-xFN">
+            <objects>
+                <viewController id="Eke-Wm-RhX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ya8-Th-AdA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FNX-TM-tjU">
+                                <rect key="frame" x="0.0" y="99" width="390" height="591"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsq-tq-HFb">
+                                <rect key="frame" x="25" y="740" width="340" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6aS-yI-Y1L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="26"/>
+                                <state key="normal" title="lock">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-lock-52" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-uw-ulU">
+                                <rect key="frame" x="317" y="750" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wkD-F7-U7M"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="FNX-TM-tjU" firstAttribute="leading" secondItem="wkD-F7-U7M" secondAttribute="leading" id="Gmn-uV-2o9"/>
+                            <constraint firstItem="wkD-F7-U7M" firstAttribute="bottom" secondItem="Jsq-tq-HFb" secondAttribute="bottom" constant="20" id="Ysa-bd-4J9"/>
+                            <constraint firstItem="FNX-TM-tjU" firstAttribute="trailing" secondItem="wkD-F7-U7M" secondAttribute="trailing" id="bda-fa-IhM"/>
+                            <constraint firstItem="Jsq-tq-HFb" firstAttribute="leading" secondItem="wkD-F7-U7M" secondAttribute="leading" constant="25" id="c1P-Iz-eve"/>
+                            <constraint firstItem="FNX-TM-tjU" firstAttribute="top" secondItem="wkD-F7-U7M" secondAttribute="top" constant="55" id="fQx-Lf-6hc"/>
+                            <constraint firstItem="Jsq-tq-HFb" firstAttribute="top" secondItem="FNX-TM-tjU" secondAttribute="bottom" constant="50" id="rhZ-Wx-XEA"/>
+                            <constraint firstItem="wkD-F7-U7M" firstAttribute="trailing" secondItem="Jsq-tq-HFb" secondAttribute="trailing" constant="25" id="v8H-s1-9v4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOT-cx-TTV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1900" y="76.777251184834114"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vfi-vb-lNf">
             <objects>
@@ -94,6 +138,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MqH-9C-AaB">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -108,8 +154,17 @@
     <resources>
         <image name="icons8-lock-52" width="52" height="52"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -17,6 +17,7 @@
 		4336494225D5417C005935A4 /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336494125D5417C005935A4 /* LockStatus.swift */; };
 		4336494725D54467005935A4 /* NoteObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336494625D54467005935A4 /* NoteObjects.swift */; };
 		4336494A25D59410005935A4 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336494925D59410005935A4 /* NoteCell.swift */; };
+		4336494D25D6958D005935A4 /* NoteDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336494C25D6958D005935A4 /* NoteDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4336494125D5417C005935A4 /* LockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
 		4336494625D54467005935A4 /* NoteObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteObjects.swift; sourceTree = "<group>"; };
 		4336494925D59410005935A4 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		4336494C25D6958D005935A4 /* NoteDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				4336492425D44182005935A4 /* NoteVC.swift */,
+				4336494C25D6958D005935A4 /* NoteDetailsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				4336494725D54467005935A4 /* NoteObjects.swift in Sources */,
 				4336492525D44182005935A4 /* NoteVC.swift in Sources */,
 				4336492125D44182005935A4 /* AppDelegate.swift in Sources */,
+				4336494D25D6958D005935A4 /* NoteDetailsVC.swift in Sources */,
 				4336494225D5417C005935A4 /* LockStatus.swift in Sources */,
 				4336492325D44182005935A4 /* SceneDelegate.swift in Sources */,
 				4336494A25D59410005935A4 /* NoteCell.swift in Sources */,
