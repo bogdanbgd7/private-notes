@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,6 +20,11 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     //MARK: - Table View Delegate Methods
@@ -48,6 +54,49 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         noteDetails.note = notesArrary[indexPath.row]
         noteDetails.index = indexPath.row
         navigationController?.pushViewController(noteDetails, animated: true)
+    }
+    
+    //MARK: - FaceID using LocalAuthentication
+    func authWithBiometrics(completion: @escaping(Bool) -> Void){
+        let context = LAContext()
+        let reason = "Unlock note with FaceID/TouchID"
+        var authError: NSError?
+        
+        //iOS 8.0< doesn't support Biometrics auth
+        if #available(ios 8.0, macOS 10.12.1, *){
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError){
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, authenticationError) in
+                    if success {
+                        completion(true)
+                    } else {
+                        guard let authError = authenticationError?.localizedDescription else {return}
+                        //show alert
+                        let alert = UIAlertController(title: "Error!", message: "Try again.", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Ok.", style: .default, handler: nil)
+                        alert.addAction(action)
+                        self.present(alert, animated: true, completion: nil)
+                        completion(false)
+                    }
+                }
+            } else {
+                //device doesn't have faceID/touchID
+                guard let errorReason = authError?.localizedDescription else {return}
+                let alert = UIAlertController(title: "Error!", message: "Your device doesn't support Biometrics Authentication.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok.", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                completion(false)
+            }
+        } else {
+            let alert = UIAlertController(title: "Deprecated OS version!", message: "Your device OS version doesn't support Biometrics Authentication. Please update your device.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok.", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            completion(false)
+            
+        }
+        
+        
     }
 
 

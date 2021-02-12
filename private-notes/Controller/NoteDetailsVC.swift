@@ -27,7 +27,7 @@ class NoteDetailsVC: UIViewController {
     }
     
     @IBAction func lockBtnPressed(_ sender: Any) {
-        notesArrary[index].lockedStatus = .locked
+        notesArrary[index].lockedStatus = lockStatusSwitcher(note.lockedStatus)
         navigationController?.popViewController(animated: true)
     }
     
