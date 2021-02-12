@@ -46,7 +46,21 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushNoteFor(indexPath: indexPath)
+        //pushNoteFor(indexPath: indexPath)
+        if notesArrary[indexPath.row].lockedStatus == .locked {
+            //require biometrics
+            authWithBiometrics { (successAuth) in
+                if successAuth{
+                    let lockStatus = notesArrary[indexPath.row].lockedStatus
+                    notesArrary[indexPath.row].lockedStatus = self.lockStatusSwitcher(lockStatus)
+                    DispatchQueue.main.async {
+                        self.pushNoteFor(indexPath: indexPath)
+                    }
+                }
+            }
+        } else {
+            pushNoteFor(indexPath: indexPath)
+        }
     }
     
     func pushNoteFor(indexPath: IndexPath){
@@ -62,7 +76,7 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let reason = "Unlock note with FaceID/TouchID"
         var authError: NSError?
         
-        //iOS 8.0< doesn't support Biometrics auth
+        //iOS 8.0< doesn't support Biometrics authentication
         if #available(ios 8.0, macOS 10.12.1, *){
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError){
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, authenticationError) in
@@ -79,7 +93,7 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     }
                 }
             } else {
-                //device doesn't have faceID/touchID
+                //device doesn't support faceID/touchID
                 guard let errorReason = authError?.localizedDescription else {return}
                 let alert = UIAlertController(title: "Error!", message: "Your device doesn't support Biometrics Authentication.", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok.", style: .default, handler: nil)
@@ -87,7 +101,7 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.present(alert, animated: true, completion: nil)
                 completion(false)
             }
-        } else {
+        } else { //deprecated OS version
             let alert = UIAlertController(title: "Deprecated OS version!", message: "Your device OS version doesn't support Biometrics Authentication. Please update your device.", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok.", style: .default, handler: nil)
             alert.addAction(action)
@@ -97,6 +111,14 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         
+    }
+    
+    func lockStatusSwitcher(_ lockStatus: LockStatus) -> LockStatus {
+        if lockStatus == .locked {
+            return .unlocked
+        } else {
+            return .locked
+        }
     }
 
 
