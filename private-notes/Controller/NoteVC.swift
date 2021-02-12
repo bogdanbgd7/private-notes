@@ -70,7 +70,7 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(noteDetails, animated: true)
     }
     
-    //MARK: - FaceID using LocalAuthentication
+    //MARK: - Biometric Authentication
     func authWithBiometrics(completion: @escaping(Bool) -> Void){
         let context = LAContext()
         let reason = "Unlock note with FaceID/TouchID"
@@ -112,6 +112,13 @@ class NoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
     }
+    
+    //MARK: - New Note
+    @IBAction func newNoteBtnPressed(_ sender: Any) {
+        guard let newNoteVC = storyboard?.instantiateViewController(withIdentifier: "NewNoteVC") as? NewNoteVC else {return}
+        navigationController?.pushViewController(newNoteVC, animated: true)
+    }
+    
     
     func lockStatusSwitcher(_ lockStatus: LockStatus) -> LockStatus {
         if lockStatus == .locked {

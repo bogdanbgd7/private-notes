@@ -13,3 +13,4 @@ var secondNote = Note(message: "second message", lockedStatus: .unlocked)
 var thirdNote = Note(message: "cats are awesome", lockedStatus: .locked)
 
 var notesArrary : [Note] = [firstNote, secondNote, thirdNote]
+
